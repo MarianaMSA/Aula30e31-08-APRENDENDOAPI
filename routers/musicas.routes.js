@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const Musica = require('../models/musicas');
+const Controller = require('../controllers/musicas.controller');
 
-router.post("/add", async (req, res) => {
+router.post('/add', async (req, res) => {
     await Musica.create(req.body)
     .then(() => {
         res.status(200).send("Musica adicionada com sucesso");
@@ -10,6 +11,7 @@ router.post("/add", async (req, res) => {
         res.status(400).send("Algo errado com a musica, tente novamente");
         console.error(err);
     })
+
 });
 
 router.get('/', async (req, res) => {
