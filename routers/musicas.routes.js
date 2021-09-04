@@ -17,8 +17,7 @@ router.post('/add', async (req, res) => {
 router.get('/', async (req, res) => {
     await Musica.find({})
     .then((musica) => {
-        res.status(200).send(musica);
-        console.log('OIIIIIIIIIIIII')
+        res.status(200).send(musica);       
     })
     .catch((err) => {
         res.status(400).send("Algo errado com a musica, tente novamente");
